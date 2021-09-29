@@ -1,10 +1,10 @@
 var count = 0;
-var emojiList = document.querySelectorAll("a.emoji-pic");
+var emojiList = document.querySelectorAll("img[title^='[']");
 if (emojiList.length > 0) {
     var intervalID = setInterval(function () {
         var currentValue = emojiList[count];
-        var url = currentValue.childNodes[0].getAttribute("src").split("@")[0];
-        var name = currentValue.childNodes[0].getAttribute("title").slice(1, -1) + "." + url.split(".").pop();
+        var url = currentValue.getAttribute("src").split("@")[0];
+        var name = currentValue.getAttribute("title").slice(1, -1) + "." + url.split(".").pop();
         
         const xhr = new XMLHttpRequest();
         xhr.open('GET', url, true);
